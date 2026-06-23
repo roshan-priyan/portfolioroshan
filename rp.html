@@ -1,0 +1,615 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roshan Priyan V S · Portfolio</title>
+  <!-- Google Font & reset -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f0f4fe 0%, #e9eff9 100%);
+      font-family: "Inter", sans-serif;
+      padding: 2rem 1.5rem;
+      color: #0f1a2e;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .portfolio {
+      max-width: 1150px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(2px);
+      border-radius: 40px;
+      box-shadow: 0 25px 50px -12px rgba(18, 45, 80, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.6);
+      padding: 2.2rem 2.5rem;
+      transition: all 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 640px) {
+      .portfolio {
+        padding: 1.5rem 1.2rem;
+        border-radius: 28px;
+      }
+    }
+
+    /* header */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 2px solid rgba(60, 100, 177, 0.15);
+    }
+
+    .name-title h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #0f2b4f, #2a5f8a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+    }
+
+    .name-title .badge {
+      display: inline-block;
+      margin-top: 6px;
+      background: linear-gradient(145deg, #dceaff, #c4d9f5);
+      color: #14487a;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.25rem 1.3rem;
+      border-radius: 40px;
+      letter-spacing: 0.3px;
+      border: 1px solid rgba(60, 120, 200, 0.2);
+    }
+
+    .summary-tag {
+      background: linear-gradient(145deg, #e3edfc, #d3e1f5);
+      padding: 0.5rem 1.5rem;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #0f3257;
+      border: 1px solid rgba(70, 130, 200, 0.15);
+      box-shadow: 0 2px 6px rgba(0, 40, 80, 0.04);
+      max-width: 380px;
+      text-align: right;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 640px) {
+      .header {
+        flex-direction: column;
+        align-items: start;
+        gap: 0.6rem;
+      }
+      .summary-tag {
+        text-align: left;
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+
+    /* summary card */
+    .summary-card {
+      background: linear-gradient(135deg, #f3f9ff, #e8f0fe);
+      border-radius: 28px;
+      padding: 1.6rem 2rem;
+      margin-bottom: 2.2rem;
+      border: 1px solid rgba(80, 140, 220, 0.15);
+      box-shadow: 0 6px 14px rgba(30, 70, 130, 0.04);
+    }
+
+    .summary-card p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #142c47;
+      font-weight: 450;
+    }
+
+    .summary-card strong {
+      color: #0a2d55;
+      font-weight: 600;
+    }
+
+    /* grid */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.2rem 2rem;
+      margin-top: 0.3rem;
+    }
+
+    @media (max-width: 720px) {
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+      }
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #0b2749;
+      border-bottom: 3px solid rgba(50, 120, 200, 0.2);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title .accent {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #3a86d9, #1f5f9e);
+    }
+
+    /* experience */
+    .exp-item {
+      margin-bottom: 1.6rem;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 1rem 1.2rem;
+      border-radius: 22px;
+      border: 1px solid rgba(200, 215, 235, 0.3);
+      backdrop-filter: blur(2px);
+      transition: 0.15s;
+    }
+
+    .exp-item:hover {
+      border-color: #b0cae5;
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    .exp-item .exp-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-weight: 600;
+      color: #0a274a;
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
+    .exp-item .exp-desc {
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: #1a3455;
+    }
+
+    .exp-item .exp-desc ul {
+      padding-left: 1.2rem;
+      margin-top: 4px;
+      list-style-type: disc;
+    }
+    .exp-item .exp-desc ul li {
+      margin-bottom: 3px;
+    }
+
+    /* projects */
+    .project-card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.2rem 1.4rem 1.4rem 1.4rem;
+      margin-bottom: 1.3rem;
+      border: 1px solid rgba(180, 205, 235, 0.3);
+      box-shadow: 0 4px 12px rgba(0, 30, 60, 0.03);
+      transition: all 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: #8bb4dc;
+      box-shadow: 0 8px 20px rgba(30, 80, 150, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .project-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #0f2d51;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .project-stack {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #1f5280;
+      background: #e3eefa;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      letter-spacing: 0.2px;
+      border: 1px solid rgba(70, 140, 210, 0.1);
+    }
+
+    .project-desc {
+      font-size: 0.92rem;
+      line-height: 1.5;
+      margin-top: 8px;
+      color: #1b3557;
+    }
+
+    .project-card.highlight {
+      border-left: 6px solid #3f87d6;
+      background: #f8fcff;
+    }
+
+    /* skills */
+    .skill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.6rem;
+      margin-top: 0.2rem;
+    }
+
+    .skill-tag {
+      background: linear-gradient(145deg, #eaf1fc, #dce6f5);
+      padding: 0.3rem 1.1rem;
+      border-radius: 60px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #113157;
+      border: 1px solid rgba(70, 130, 200, 0.08);
+      transition: 0.1s;
+      letter-spacing: 0.2px;
+    }
+
+    .skill-tag:hover {
+      background: #d5e3f7;
+      border-color: #8db4dc;
+    }
+
+    .skill-category {
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-category h4 {
+      font-weight: 600;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: #1f4b78;
+      margin-bottom: 0.5rem;
+      opacity: 0.8;
+    }
+
+    /* education */
+    .edu-item {
+      background: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: 20px;
+      border-left: 6px solid #3f87d6;
+      margin-bottom: 0.8rem;
+      box-shadow: 0 2px 6px rgba(0, 20, 40, 0.02);
+    }
+
+    .edu-item strong {
+      display: block;
+      font-weight: 700;
+      color: #0b274a;
+      font-size: 0.98rem;
+    }
+
+    .edu-item .meta {
+      font-size: 0.85rem;
+      color: #1d4470;
+      font-weight: 450;
+    }
+
+    .footer-note {
+      margin-top: 2.2rem;
+      color: #3c608a;
+      font-size: 0.85rem;
+      text-align: right;
+      border-top: 2px solid rgba(60, 110, 180, 0.1);
+      padding-top: 1.2rem;
+      font-weight: 450;
+      letter-spacing: 0.3px;
+    }
+
+    .badge-ipr {
+      background: #d4e2f5;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.15rem 0.9rem;
+      border-radius: 40px;
+      color: #14487a;
+      border: 1px solid rgba(60, 120, 200, 0.15);
+      display: inline-block;
+      margin-left: 6px;
+    }
+
+    /* certifications */
+    .cert-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .cert-item {
+      background: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: 20px;
+      border-left: 6px solid #f2a93b;
+      box-shadow: 0 2px 6px rgba(0, 20, 40, 0.02);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      transition: 0.1s;
+    }
+
+    .cert-item:hover {
+      background: #fcf9f0;
+    }
+
+    .cert-item .cert-name {
+      font-weight: 600;
+      color: #0b274a;
+      font-size: 0.95rem;
+    }
+
+    .cert-item .cert-meta {
+      font-size: 0.78rem;
+      color: #1f4b78;
+      background: #eaf2fc;
+      padding: 0.15rem 1rem;
+      border-radius: 60px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 480px) {
+      .project-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+      }
+      .cert-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="portfolio">
+
+  <!-- header -->
+  <div class="header">
+    <div class="name-title">
+      <h1>Roshan Priyan V S</h1>
+      <div class="badge">M.Tech (Integrated) · Software Engineering</div>
+    </div>
+    <div class="summary-tag">
+      ⚡ Full-Stack · IoT · AI · Java · React · Node.js
+    </div>
+  </div>
+
+  <!-- summary -->
+  <div class="summary-card">
+    <p>
+      <strong>Software Engineering student</strong> with strong fundamentals in OOP, SDLC, Agile methodologies, Data Structures, and problem-solving. 
+      Proficient in full-stack development, IoT systems, and AI-based applications using React.js, Node.js, Java, and SQL. 
+      Experienced in developing scalable and efficient solutions through collaborative team environments while contributing across development, testing, and deployment phases. 
+      Passionate about continuous learning, project coordination, and building reliable real-world software solutions.
+    </p>
+  </div>
+
+  <!-- main 2 col -->
+  <div class="grid-2col">
+
+    <!-- LEFT COLUMN: Experience + Projects -->
+    <div>
+
+      <!-- Experience -->
+      <div>
+        <div class="section-title"><span class="accent"></span> Experience</div>
+        <div class="exp-item">
+          <div class="exp-head">
+            <span>Full Stack Web Development Intern</span>
+            <span style="font-weight: 500; color: #1f5280;">Juniper Technologies · Chennai (Remote)</span>
+          </div>
+          <div class="exp-desc">
+            <span style="display: inline-block; margin-bottom: 4px; font-weight: 500; font-size: 0.8rem; color: #1f5280;">June 2025 · React.js, Node.js</span>
+            <ul>
+              <li>Developed responsive web pages using HTML, CSS, and JavaScript, ensuring cross-browser compatibility and user-friendly design.</li>
+              <li>Built dynamic user interfaces using React.js, understanding component-based architecture and state management.</li>
+              <li>Gained hands-on experience in backend development using Node.js, including basic API creation and integration.</li>
+              <li>Integrated frontend and backend components to enable smooth data flow within the application.</li>
+              <li>Strengthened understanding of full-stack development concepts and modern web development practices.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div style="margin-top: 1.8rem;">
+        <div class="section-title"><span class="accent"></span> Projects</div>
+
+        <div class="project-card highlight">
+          <div class="project-title">
+            <span>🔐 Autonomous Edge-Controlled Locker System</span>
+            <span class="project-stack">RFID · ESP32 · Firebase · Android</span>
+          </div>
+          <div class="project-desc">
+            <span class="badge-ipr">📜 IPR Patent Filed</span>
+            <ul style="margin-top: 6px; padding-left: 1.2rem; list-style-type: disc; color: #1b3557; font-size: 0.92rem;">
+              <li>Designed and developed an RFID-based autonomous locker and cloakroom management system with real-time monitoring and secure access control.</li>
+              <li>Implemented an edge-controlled architecture using microcontrollers to reduce latency and enable decentralized decision-making.</li>
+              <li>Integrated sensor modules and communication protocols for automated locker operations, improving system reliability.</li>
+            </ul>
+            <div style="margin-top: 6px; font-size: 0.8rem; color: #1f5280; background: #eef4fa; padding: 0.2rem 1rem; border-radius: 40px; display: inline-block;">Technologies: RFID, ESP32, Embedded C, Firebase, Android Studio</div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-title">
+            <span>🧠 Intelligent Face Recognition System</span>
+            <span class="project-stack">Python · MTCNN · FaceNet · OpenCV</span>
+          </div>
+          <div class="project-desc">
+            <ul style="margin-top: 4px; padding-left: 1.2rem; list-style-type: disc; color: #1b3557; font-size: 0.92rem;">
+              <li>Developed a real-time face recognition system achieving 92% accuracy using deep learning techniques.</li>
+              <li>Implemented face detection using MTCNN and feature extraction using FaceNet for robust identification.</li>
+              <li>Built a video processing pipeline for automatic face detection and labeling in real-time scenarios.</li>
+            </ul>
+            <div style="margin-top: 6px; font-size: 0.8rem; color: #1f5280; background: #eef4fa; padding: 0.2rem 1rem; border-radius: 40px; display: inline-block;">Technologies: Python, MTCNN, FaceNet, OpenCV, Deep Learning</div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-title">
+            <span>🛡️ Intelligent Firewall Threat Prediction</span>
+            <span class="project-stack">Python · ML · Pfsense · TCP/IP</span>
+          </div>
+          <div class="project-desc">
+            <ul style="margin-top: 4px; padding-left: 1.2rem; list-style-type: disc; color: #1b3557; font-size: 0.92rem;">
+              <li>Developed a real-time firewall log analysis system to detect suspicious network activity using machine learning techniques.</li>
+              <li>Implemented automated firewall log extraction, preprocessing, and custom risk score calculation for continuous threat monitoring.</li>
+              <li>Built an interactive dashboard to visualize firewall logs, high-risk alerts, and attack predictions in real time.</li>
+            </ul>
+            <div style="margin-top: 6px; font-size: 0.8rem; color: #1f5280; background: #eef4fa; padding: 0.2rem 1rem; border-radius: 40px; display: inline-block;">Technologies: Python, Machine Learning, Pfsense Firewall, Network Security, TCP/IP</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN: Skills + Education + Certifications -->
+    <div>
+
+      <!-- Skills -->
+      <div>
+        <div class="section-title"><span class="accent"></span> Technical Skills</div>
+
+        <div class="skill-category">
+          <h4>Languages</h4>
+          <div class="skill-cloud">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h4>Libraries &amp; Tools</h4>
+          <div class="skill-cloud">
+            <span class="skill-tag">Scikit-learn</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">CNN</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h4>Embedded Systems &amp; IoT</h4>
+          <div class="skill-cloud">
+            <span class="skill-tag">ESP32</span>
+            <span class="skill-tag">ESP8266</span>
+            <span class="skill-tag">Arduino IDE</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h4>Databases</h4>
+          <div class="skill-cloud">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Firebase Realtime DB</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h4>Tools &amp; Web</h4>
+          <div class="skill-cloud">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Jira</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">Linux (Basic)</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h4>Soft Skills</h4>
+          <div class="skill-cloud">
+            <span class="skill-tag">Analytical Thinking</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Data Interpretation</span>
+            <span class="skill-tag">Team Collaboration</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div style="margin-top: 2rem;">
+        <div class="section-title"><span class="accent"></span> Education</div>
+        <div class="edu-item">
+          <strong>Vellore Institute of Technology (VIT), Vellore</strong>
+          <span class="meta">M.Tech (Integrated) Software Engineering</span>
+        </div>
+        <div class="edu-item">
+          <strong>N. Krishnaswamy Mudaliar Higher Secondary School, Vellore</strong>
+          <span class="meta">Higher Secondary</span>
+        </div>
+      </div>
+
+      <!-- Certifications — exact list as provided -->
+      <div style="margin-top: 2rem;">
+        <div class="section-title"><span class="accent"></span> Certifications</div>
+        <div class="cert-grid">
+          <div class="cert-item">
+            <span class="cert-name">🧠 Generative AI Workshop</span>
+            <span class="cert-meta">VIT</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-name">🏆 Gravitas Makeathon 2025</span>
+            <span class="cert-meta">VIT</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-name">🎨 UI/UX Backend Developer</span>
+            <span class="cert-meta">Certification</span>
+          </div>
+        </div>
+        <div style="margin-top: 0.6rem; font-size: 0.8rem; color: #3c608a; text-align: right;">
+          <span style="background: #eaf2fc; padding: 0.2rem 1.2rem; border-radius: 60px;">📁 full list in resume</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="footer-note">
+    Roshan Priyan V S · Software Engineer · Full-Stack · IoT · AI · React · Node.js · Java
+  </div>
+</div>
+</body>
+</html>
+```
